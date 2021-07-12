@@ -1,14 +1,14 @@
 <theme>
-    <formatVersion>4</formatVersion>
+    <formatVersion>7</formatVersion>
 
 <!-- Game View - All -->
     <view name="system, basic, detailed, video, grid">
 	<!-- Page Layout -->
         <image name="system-background" extra="true">
-            <path>./../images/Cygnetdb.png</path>
+            <path>./_res/images/cygnetdb.png</path>
         </image>
         <image name="background">
-            <path>./../images/Cygnetdb.png</path>
+            <path>./_res/images/cygnetdb.png</path>
         </image>
         <helpsystem name="help">
             <textColor>8482BD</textColor>
