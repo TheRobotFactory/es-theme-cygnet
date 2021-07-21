@@ -87,10 +87,10 @@
 			<color>8482BD</color>
 		</text>
         <datetime name="md_releasedate">
-			<color>8482BD</color>
+			<color>00000A</color>
 		</datetime>
         <image name="md_hidden, md_kidgame, md_favorite">
-            <color>8482BD</color>
+			<color>00000A</color>
         </image>
 
 

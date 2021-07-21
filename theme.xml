@@ -21,13 +21,39 @@ based on:		"cygnus" by Steve Boswell
 		<templatenometatname>No-meta</templatenometatname>
 		<templatsimplearttename>Simpleart</templatsimplearttename>
 		<templatesanometatname>Simpleart No-meta</templatesanometatname>
+
+		<stylenesname>NES/Famicom</stylenesname>
+		<stylenesnes>NES</stylenesnes>
+		<stylenesfamicom>Famicom</stylenesfamicom>
+		
+		<stylesnesname>SNES/SFC</stylesnesname>
+		<stylesnessnes>SNES</stylesnessnes>
+		<stylesneseusnes>EU SNES</stylesneseusnes>
+		<stylesnessfc>SFC</stylesnessfc>
+		
+		<stylegbname>Gameboy</stylegbname>
+		<stylegbgb>GB</stylegbgb>
+		<stylegbgbc>GB Color</stylegbgbc>
+		<stylegbgbp>GB Pocket</stylegbgbp>
+		
+		<stylemdname>Megadrive/Genesis</stylemdname>
+		<stylemdmdeu>EU Mega Drive</stylemdmdeu>
+		<stylemdmdjp>JP Mega Drive</stylemdmdjp>
+		<stylemdgen>Genesis</stylemdgen>
+		<stylemdtop>Tower of Power</stylemdtop>
+		
+		<stylepcename>PC Engine/TurboGrafX</stylepcename>
+		<stylepcepce>PC Engine</stylepcepce>
+		<stylepcetg16>TurboGrafX</stylepcetg16>
+		<stylepcesgx>SuperGrafX</stylepcesgx>
+		<stylepceduo>TurboDuo</stylepceduo>
+		
 	</variables>
 	<subset name="colorset" displayName="${subset.colorset}">
 		<include name="cygnet" displayName="${colorsetcygnetname}">./_res/colorsets/cygnet.xml</include>
 		<include name="mono" displayName="${colorsetmononame}">./_res/colorsets/mono.xml</include>
 		<include name="term" displayName="${colorsettermname}">./_res/colorsets/terminal.xml</include>
 	</subset>
- 
 
 <!-- System View -->
 	<view name="system">
@@ -123,46 +149,249 @@ based on:		"cygnus" by Steve Boswell
 			<origin>1 0</origin>
 			<pos>0.98 0.02</pos>
 			<maxSize>0.2 0.25</maxSize>
+			<zIndex>50</zIndex>
 		</image>
 	</view>
 
-	<subset name="template" displayName="${templatename}">
-		<include name="cygnett" displayName="${templatecygnettname}">./_res/templates/cygnet.xml</include>
-		<include name="nometat" displayName="${templatenometatname}">./_res/templates/nometa.xml</include>
-		<include name="simpleartt" displayName="${templatsimplearttename}">./_res/templates/simpleart.xml</include>
-		<include name="sanometat" displayName="${templatesanometatname}">./_res/templates/simpleart-nometa.xml</include>
-	</subset>
-
-	<view name="system">
-	<!-- System Specific Images -->
-		<image name="logo">
-			<path>./logos/${system.theme}.svg</path>
+    <view name="basic, detailed, video">
+        <image name="gamelist-matte" extra="true">
+            <path>./_res/images/white.png</path>
+            <origin>0 0</origin>
+            <pos>0.03 0.163</pos>
+            <size>0.36 0.46</size>
         </image>
 
-        <image name="mascot" extra="true">
-			<path>./mascots/${system.theme}.png</path>
-		</image>
+        <textlist name="gamelist">
+            <fontPath>./_res/fonts/RobotoCondensed-Bold.ttf</fontPath>
+            <pos>0.03 0.163</pos>
+            <size>0.36 0.7</size>
+            <fontSize>0.03</fontSize>
+            <lineSpacing>1.45</lineSpacing>
+            <horizontalMargin>0.015</horizontalMargin>
+            <alignment>left</alignment>
+            <forceUppercase>0</forceUppercase>
+        </textlist>
+     </view>
 
-        <image name="system" extra="true">
-			<path>./systems/${system.theme}.png</path>
-		</image>
-	</view>
+    <view name="basic">
+        <image name="overlay" extra="true">
+            <origin>0.5 0.5</origin>
+            <pos>0.715 0.55</pos>
+            <maxSize>0.51 0.7</maxSize>
+        </image>
+
+        <image name="gamelist-matte" extra="true">
+            <size>0.36 0.7742</size>
+        </image>
+
+        <textlist name="gamelist">
+            <size>0.36 0.74</size>
+        </textlist>
+    </view>
 
     <view name="detailed, video">
+    <!-- Metadata -->
+        <text name="md_lbl_players">
+            <fontSize>0.024</fontSize>
+            <forceUppercase>1</forceUppercase>
+            <size>0 0</size>
+        </text>
+
+        <text name="md_players, md_genre, md_developer, md_publisher">
+            <fontSize>0.024</fontSize>
+            <size>0 0</size>
+            <forceUppercase>1</forceUppercase>
+        </text>
+
+        <datetime name="md_releasedate, md_lastplayed">
+            <fontSize>0.035</fontSize>
+            <forceUppercase>1</forceUppercase>
+        </datetime>
+
+        <rating name="md_rating">
+            <size>0.15 0.05</size>
+            <filledPath>./_res/images/star_filled_spacing.svg</filledPath>
+            <unfilledPath>./_res/images/star_hollow_spacing.svg</unfilledPath>
+        </rating>
+        <image name="md_hidden">
+            <pos>0.823 0.700</pos>
+            <path>./_res/images/hidden.svg</path>
+            <maxSize>0.032 0.032</maxSize>
+            <origin>0.5 0.5</origin>
+        </image>
+        <image name="md_kidgame">
+            <pos>0.883 0.700</pos>
+            <path>./_res/images/kid.svg</path>
+            <maxSize>0.032 0.032</maxSize>
+            <origin>0.5 0.5</origin>
+        </image>
+        <image name="md_favorite">
+            <pos>0.940 0.700</pos>
+            <path>./_res/images/favorite.svg</path>
+            <maxSize>0.032 0.032</maxSize>
+            <origin>0.5 0.5</origin>
+        </image>
+
+        <text name="md_description">
+            <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+            <fontSize>0.021</fontSize>
+            <lineSpacing>1.55</lineSpacing>
+            <pos>0.0345 0.69</pos>
+            <size>0.355 0.195</size>
+        </text>
+        <text name="md_lbl_rating, md_lbl_lastplayed, md_lbl_playcount, md_publisher, md_lbl_genre, md_lbl_developer, md_lbl_publisher, md_lbl_releasedate">
+            <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+            <pos>0 0</pos>
+            <size>0 0</size>
+        </text>
+
+        <text name="md_lbl_rating, md_lbl_lastplayed, md_lbl_playcount, md_playcount, md_publisher, md_lbl_genre, md_lbl_developer, md_lbl_publisher, md_lbl_releasedate">
+            <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+            <pos>0 0</pos>
+            <size>0 0</size>
+        </text>
+
+    <!-- Description -->
+        <image name="description-matteh" extra="true">
+            <path>./_res/images/white.png</path>
+            <origin>0.0 0.0</origin>
+            <pos>0.03 0.870</pos>
+            <size>0.36 0.07</size>
+        </image>
+
+        <text name="md_description">
+            <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+            <fontSize>0.021</fontSize>
+            <lineSpacing>1.55</lineSpacing>
+            <pos>0.0345 0.69</pos>
+            <size>0.355 0.195</size>
+        </text>
+
+        <!-- Metadata -->
+
+            <!-- Limit the length of the metadata -->
+            <text name="md_genre, md_developer, md_publisher,md_lastplayed,md_players,md_releasedate">
+                <size>0.13 0.023</size>
+            </text>
+
+            <datetime name="md_lastplayed">
+                <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+                <pos>0.035 0.645</pos>
+            </datetime>
+            <rating name="md_rating">
+                <alignment>left</alignment>
+                <pos>0.035 0.88</pos>
+             </rating>
+            <text name="md_lbl_players">
+                <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+                <pos>0.30 0.640</pos>
+            </text>
+            <text name="md_players">
+                <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+                <pos>0.37 0.645</pos>
+            </text>
+            <text name="md_genre">
+                <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+                <alignment>left</alignment>
+                <pos>0.035 0.898</pos>
+            </text>
+            <text name="md_developer">
+                <fontPath>./_res/fonts/AdobeBlank.ttf</fontPath>
+                <alignment>center</alignment>
+                <pos>0.14 0.898</pos>
+            </text>
+            <datetime name="md_releasedate">
+                <fontPath>./_res/fonts/RobotoCondensed-Bold.ttf</fontPath>
+				<format>%Y</format>
+                <pos>0.30 0.890</pos>
+            </datetime>
+
+    </view>
+
+
+    <view name="detailed">
+        <image name="md_image">
+            <origin>0.5 0.5</origin>
+            <pos>0.70 0.55</pos>
+            <maxSize>0.55 0.55</maxSize>
+        </image>
+    </view>
+
+<feature supported="video">
+
+    <view name="video">
+         <image name="md_marquee">
+            <pos>0.99 0.90</pos>
+            <origin>1 1</origin>
+            <maxSize>0.35 0.3</maxSize>
+			<zIndex>40</zIndex>
+        </image>
+        <image name="md_image" tinyScreen="false">
+            <origin>0 1</origin>
+            <pos>0.42 0.9</pos>
+            <maxSize>0.35 0.35</maxSize>
+			<zIndex>40</zIndex>
+			<rotation>-10</rotation>
+        </image>
+       <video name="md_video">
+           <origin>0.5 0.5</origin>
+            <pos>0.70 0.47</pos>
+            <maxSize>0.6 0.6</maxSize>
+            <delay>0.01</delay>
+      	   <delay>1.5</delay>
+			 <default>true</default>
+			 <showSnapshotNoVideo>true</showSnapshotNoVideo>
+			 <showSnapshotDelay>true</showSnapshotDelay>                
+ 			<zIndex>30</zIndex>
+        </video>
+    </view>
+</feature>
+
+	<view name="system, detailed, video, basic">
+		<image name="logo" region="eu"></image>
 		<image name="logo">
-			<path>./logos/${system.theme}.svg</path>
+			<path>./_res/logos/${system.theme}.png</path>
+			<path>./_res/logos/${system.theme}.svg</path>
 		</image>
-        <image name="system" extra="true">
-			<path>./systems/${system.theme}.png</path>
+		<image name="logo" region="us">
+			<path>./_res/logos/${system.theme}-us.png</path>
+			<path>./_res/logos/${system.theme}-us.svg</path>
+		</image>
+		<image name="logo" region="jp">
+			<path>./_res/logos/${system.theme}-jp.png</path>
+			<path>./_res/logos/${system.theme}-jp.svg</path>
 		</image>
 	</view>
+	<view name="system, detailed, video">
+		<image name="system" region="eu"></image>
+        <image name="system" extra="true">
+			<path>./_res/systems/${system.theme}.png</path>
+		</image>
+        <image name="system" region="us" extra="true">
+			<path>./_res/systems/${system.theme}-us.png</path>
+		</image>
+        <image name="system" region="jp" extra="true">
+			<path>./_res/systems/${system.theme}-jp.png</path>
+		</image>
+	</view>
+	<view name="system">
+	<!-- System Specific Images -->
+		<image name="mascot" region="eu"></image>
+        <image name="mascot" extra="true">
+			<path>./_res/mascots/${system.theme}.png</path>
+		</image>
+        <image name="mascot" region="us" extra="true">
+			<path>./_res/mascots/${system.theme}-us.png</path>
+		</image>
+        <image name="mascot" region="us" extra="true">
+			<path>./_res/mascots/${system.theme}-jp.png</path>
+		</image>
+	</view>
+
     <view name="basic">
 	<!-- System Specific Images -->
-		<image name="logo">
-			<path>./logos/${system.theme}.svg</path>
-		</image>
 		<image name="overlay" extra="true">
-			<path>./controllers/${system.theme}.svg</path>
+			<path>./_res/controllers/${system.theme}.svg</path>
 		</image>
 	</view>
 
