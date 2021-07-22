@@ -163,6 +163,7 @@ based on:		"cygnus" by Steve Boswell
 
         <textlist name="gamelist">
             <fontPath>./_res/fonts/RobotoCondensed-Bold.ttf</fontPath>
+            <scrollsound>./_res/sounds/scroll.wav</scrollsound>
             <pos>0.03 0.163</pos>
             <size>0.36 0.7</size>
             <fontSize>0.03</fontSize>
@@ -174,7 +175,7 @@ based on:		"cygnus" by Steve Boswell
      </view>
 
     <view name="basic">
-        <image name="overlay" extra="true">
+        <image name="system" extra="true">
             <origin>0.5 0.5</origin>
             <pos>0.715 0.55</pos>
             <maxSize>0.51 0.7</maxSize>
@@ -362,7 +363,7 @@ based on:		"cygnus" by Steve Boswell
 			<path>./_res/logos/${system.theme}-jp.svg</path>
 		</image>
 	</view>
-	<view name="system, detailed, video">
+	<view name="system, detailed, video, basic">
 		<image name="system" region="eu"></image>
         <image name="system" extra="true">
 			<path>./_res/systems/${system.theme}.png</path>
