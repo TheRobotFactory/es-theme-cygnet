@@ -87,14 +87,16 @@ based on:		"cygnus" by Steve Boswell
 
 	<!-- System Specific Images -->
         <image name="mascot" extra="true">
-            <origin>0 1</origin>
+ 			<!-- Left Aligned at Bottom -->
+           <origin>0 1</origin>
             <pos>0 0.9345</pos>
             <maxSize>0.75 0.75</maxSize>
         </image>
         <image name="system" extra="true">
+			<!-- Right Aligned at Top -->
             <origin>1 0</origin>
-            <pos>0.94 0.08</pos>
-            <maxSize>0.43 0.60</maxSize>
+            <pos>0.98 0.08</pos>
+            <maxSize>0.5 0.60</maxSize>
         </image>
 	</view>
 
