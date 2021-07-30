@@ -82,7 +82,7 @@ based on:		"cygnus" by Steve Boswell
 
         <helpsystem name="help">
             <fontPath>./_res/fonts/RobotoCondensed-Regular.ttf</fontPath>
-            <fontSize>0.035</fontSize>
+            <fontSize>0.03</fontSize>
 		</helpsystem>
 
 	<!-- System Specific Images -->
